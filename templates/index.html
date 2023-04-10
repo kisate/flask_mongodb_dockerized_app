@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../static/main.css">
+</head>
+<body>
+{% block content %}
+  <form action="/submit" method="post">
+    <div>
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" required>
+    </div>
+    <label for="equipment">Listening equipment:</label><br>
+    <div style="display: flex; flex-direction: row;">
+      <div style="flex: 1;">
+        <input type="radio" id="full-size" name="equipment" value="full-size" required>
+        <label for="full-size" style="display: inline-block; margin-left: 5px;">Full size headphones</label>
+      </div>
+      <div style="flex: 1;">
+        <input type="radio" id="in-ear" name="equipment" value="in-ear">
+        <label for="in-ear" style="display: inline-block; margin-left: 5px;">In-ear headphones</label>
+      </div>
+      <div style="flex: 1;">
+        <input type="radio" id="speakers" name="equipment" value="speakers">
+        <label for="speakers" style="display: inline-block; margin-left: 5px;">Speakers</label>
+      </div>
+    </div>
+    <div class="research-question">
+      <br>
+      Please listen to each pair of samples and answer the following question. <br><br> In each case your answer should be on the scale from "the first sample is strongly better" to "the second sample is strongly better":
+      <br>
+      <br>
+      Which sample simulates real room acoustics better?
+      <br>
+    </div>
+    <table>
+      {% for audio in audios%}
+      <tr>
+        <td>
+          <audio controls>
+            <source src="{{audio[0]}}" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+        <td>
+          <audio controls>
+            <source src="{{audio[1]}}" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="radio-group">
+            <input type="radio" id="strongly-disagree" name="{{audio[2]}}" value="1">
+            <input type="radio" id="disagree" name="{{audio[2]}}" value="2">
+            <input type="radio" id="agree" name="{{audio[2]}}" value="4">
+            <input type="radio" id="strongly-agree" name="{{audio[2]}}" value="5">
+          </div>
+          
+          <div class="likert-labels">
+            <div class="left-label">First sample is better</div>
+            <div class="right-label">Second sample is better</div>
+          </div>      
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email">
+    </div>
+    <button type="submit" value="Submit">Submit</button>
+  </form>
+{% endblock %}
+</body>
+</html>

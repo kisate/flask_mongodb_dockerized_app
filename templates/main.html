@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../static/main.css">
+</head>
+<body>
+    <p>
+        Dear participant, 
+        <br>
+        <br>
+        You are invited to take part in an online survey on room acoustics simulation quality.
+        <br>
+        <br>
+        Initially you will be asked some questions about your listening environment. After you would be offered pairs of audio samples and asked to compare them based on some quality.
+        <br>
+        <br>
+        It should take approximately 5 minutes to complete the survey. 
+        <br>
+        <br>
+        <br>
+        <b>Participation and Confidentiality</b> 
+        <br>
+        <br>
+        Your participation in this survey is voluntary. You may refuse to take part in the research or exit the survey at any time without any consequences. Any personal data collected from the survey will remain confidential and evaluated anonymously. Please make sure to answer all the questions and when picking an option consider what is most likely to represent your opinion. Your data will remain protected and will not be shared with any third parties.
+        <br>
+        <br>
+        <b>Potential benefits</b>
+        <br>
+        <br>
+        After all the data is collected a raffle will be conducted. Two participants randomly chosen will win a very tasty cider bottle. In order to enter the raffle you must complete the survey and leave a valid e-mail address at the end of the survey (so that we can contact you in the case you won).
+        <br>
+        <br>
+        In case there are any questions please do not hesitate to contact me, Dmitrii Kharlapenko (dkharlapenko@constructor.university)
+        <br>
+        <br>
+        Thank you very much for your participation! 
+    </p>
+    <form action="/survey" method="post">
+        <input type="radio" id="full-size" name="equipment" value="full-size" required>
+        <label for="full-size" style="display: inline-block; margin-left: 5px;">I have read the information and I agree to give my consent</label>
+        
+        <button type="submit" value="Submit">Proceed to survey</button>
+    </form>
+</body>
